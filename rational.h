@@ -1,16 +1,25 @@
-#ifndef SAFE_RATIONAL_H
-#define SAFE_RATIONAL_H
+#ifndef RATIONAL_H
+#define RATIONAL_H
 
 typedef struct {
-    int numerator;
-    int denominator;
-} safe_rational_t;
+    int num;
+    unsigned int denom;
+} rational_t;
 
-safe_rational_t safe_rat_parse(const char* str);
-safe_rational_t safe_rat_add(safe_rational_t a, safe_rational_t b);
-safe_rational_t safe_rat_sub(safe_rational_t a, safe_rational_t b);
-safe_rational_t safe_rat_mul(safe_rational_t a, safe_rational_t b);
-safe_rational_t safe_rat_div(safe_rational_t a, safe_rational_t b);
-void safe_rat_print(safe_rational_t r);
+/*
+ * Возвращает рациональное число, получаемое как результат деления
+ * n на d.
+ */
+rational_t rational(long n, long d);
 
-#endif // SAFE_RATIONAL_H
+/*
+ * Возвращает числитель рационального числа r.
+ */
+long rat_num(rational_t r);
+
+/*
+ * Возвращает знаменатель рационального числа r.
+ */
+long rat_denom(rational_t r);
+
+#endif
